@@ -237,6 +237,13 @@ class AsyncGorse:
         """
         return await self.__request("POST", f"{self.entry_point}/api/item", json=item)
 
+    async def insert_items(self, items: list) -> dict:
+        """
+        Insert an item.
+        """
+        return await self.__request("POST", f"{self.entry_point}/api/items", json=items)
+
+
     async def get_item(self, item_id: str) -> dict:
         """
         Get an item.
@@ -279,6 +286,12 @@ class AsyncGorse:
         Insert a user.
         """
         return await self.__request("POST", f"{self.entry_point}/api/user", json=user)
+    
+    async def insert_users(self, users: list) -> dict:
+        """
+        Insert a user.
+        """
+        return await self.__request("POST", f"{self.entry_point}/api/users", json=users)
 
     async def get_user(self, user_id: str) -> dict:
         """
