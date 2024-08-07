@@ -298,6 +298,16 @@ class AsyncGorse:
         Get a user.
         """
         return await self.__request("GET", f"{self.entry_point}/api/user/{user_id}")
+    
+    async def update_user(self, user_id: str, labels: List[str], subscribe: List[str], comment: str = None) -> dict:
+        """
+        Update an item.
+        """
+        return await self.__request("PATCH", f'{self.entry_point}/api/user/{user_id}', json={
+            "Comment": comment,
+            "Labels": labels,
+            "Subscribe": subscribe
+        })
 
     async def delete_user(self, user_id: str) -> dict:
         """
