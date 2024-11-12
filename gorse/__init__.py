@@ -231,6 +231,12 @@ class AsyncGorse:
         """
         return await self.__request("POST", f"{self.entry_point}/api/feedback", json=feedbacks)
 
+    async def upsert_feedback(self, feedbacks: list) -> dict:
+        """
+        Upsert feedbacks.
+        """
+        return await self.__request("PUT", f"{self.entry_point}/api/feedback", json=feedbacks)
+
     async def insert_item(self, item) -> dict:
         """
         Insert an item.
